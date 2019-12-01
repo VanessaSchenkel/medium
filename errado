@@ -1,0 +1,42 @@
+
+package br.com.medium.prova;
+
+import br.com.cwi.crescer.api.domain.enums.Especificidade;
+import br.com.cwi.crescer.api.domain.questao.QuestaoDissertativa;
+import br.com.cwi.crescer.api.domain.questao.QuestaoMultiplaEscolha;
+import br.com.cwi.crescer.api.domain.questao.QuestaoTecnica;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public List<Espec> r (List<QT> qt,
+                              List<QD> qd,
+                              List<QM> qm){
+List<Espec> es = new ArrayList<>();  
+   for (int i = 0; i < qt.size(); i++) {
+ es.add(qt.get(i).getEsp());   
+  }
+   for (int i = 0; i < qd.size(); i++) {
+       es.add(qd.get(i).getEsp());
+   }
+   for (int i = 0; i < qm.size(); i++) {
+       es.add(qm.get(i).getEsp());
+   }
+   List<Espec> nR = new ArrayList<>();
+   for (int i = 0; i < es.size(); i++) {
+       nR.add(esp.get(i));}
+   for (int j = 0; j < nR.size(); j++) {
+       for (int i = 0; i < nR.size(); i++) {
+      if(nR.get(j).equals(nR.get(i))){
+      nR.remove(nR.get(j));
+           }
+       }
+   }
+   return nR;
+
+
+
+
+}
